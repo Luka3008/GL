@@ -168,5 +168,18 @@ describe('prodList Controller', function () {
         expect(filteredProducts.length).toEqual(1);
 		
 	});
+	
+	// added test: filter by "class: gravel" and "gears: 21" we get one result
+	it('when we filter by "class: gravel" and "gears: 21" we get one result', function () {
 
+		var controller = createController();
+		$httpBackend.flush();
+
+		// call filtered products with mock data
+		var filteredProducts = $rootScope.filterProducts(mockBikeJSON.items, mockFiltersClassComfort18GearsTrue)
+
+		// we are execting no results
+		expect(filteredProducts.length).toEqual(1);
+		
+	});
 });
